@@ -1,0 +1,19 @@
+Adding Call Information (POST Request):
+curl -X POST "https://<your-worker-url>?api_key=your-secure-api-key" \
+     -H "Content-Type: application/json" \
+     -d '{
+           "group_id": "board-test-group1",
+           "topic": "Team Meeting Group1",
+           "start_time": "2024-07-20T10:00:00Z",
+           "duration": 60,
+           "join_url": "https://zoom.us/j/123456789"
+         }'
+
+Expected Response:
+{
+  "message": "Zoom info updated successfully",
+  "token": "unique-token"
+}
+
+Retrieving Call Information (GET Request):
+curl "https://<your-worker-url>?group_id=board-test-group1&token=unique-token"
